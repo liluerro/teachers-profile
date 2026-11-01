@@ -1,0 +1,1480 @@
+/* ========================================
+   1. ЗМІННІ ТА БАЗОВІ НАЛАШТУВАННЯ
+======================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --ink: #182b3a;
+  --muted: #647584;
+  --navy: #142c3b;
+  --blue: #b9dff0;
+  --blue-soft: #eaf5fa;
+  --lav: #e8e2ff;
+  --purple: #7765c9;
+  --line: #e3eaf0;
+  --paper: #ffffff;
+  --bg: #f8fafc;
+  --radius: 22px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.2;
+}
+
+.page-wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+
+/* ========================================
+   2. ВЕРХНЯ ПАНЕЛЬ ТА НАВІГАЦІЯ
+======================================== */
+
+.topline {
+  height: 5px;
+  background: linear-gradient(
+    90deg,
+    #8d7be2,
+    #b9dff0 55%,
+    #7cb6cc
+  );
+}
+
+.site-header {
+  height: 86px;
+  padding: 0 max(24px, calc((100vw - 1160px) / 2));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  border-bottom: 1px solid #edf1f4;
+  background: rgba(255, 255, 255, 0.94);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(16px);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: var(--navy);
+  color: #fff;
+  font-family: "Manrope", sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.brand-text {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+.brand-text small {
+  display: block;
+  color: var(--muted);
+  font-family: "DM Sans", sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin-top: 4px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 27px;
+}
+
+.nav a,
+.header-link {
+  font-size: 12px;
+  font-weight: 700;
+  color: #526575;
+  transition: color 0.2s;
+}
+
+.nav a:hover,
+.header-link:hover {
+  color: var(--purple);
+}
+
+.header-link {
+  padding: 11px 15px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  white-space: nowrap;
+}
+
+.header-link span {
+  margin-left: 8px;
+}
+
+
+/* ========================================
+   3. ГОЛОВНИЙ ЕКРАН
+======================================== */
+
+.hero {
+  min-height: 620px;
+  padding-top: 82px;
+  padding-bottom: 76px;
+  display: grid;
+  grid-template-columns: 1.04fr 0.96fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--purple);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #7abda9;
+  margin-right: 9px;
+  box-shadow: 0 0 0 4px #e8f6f0;
+}
+
+h1 {
+  font-size: clamp(42px, 5vw, 66px);
+  letter-spacing: -0.055em;
+  margin-bottom: 18px;
+  font-weight: 800;
+}
+
+h1 span {
+  color: #7a6bc5;
+}
+
+.hero-role {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+.hero-description {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.85;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 29px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 13px 19px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: 0 8px 18px #142c3b1a;
+}
+
+.button-secondary {
+  border: 1px solid #dce5eb;
+  background: #fff;
+}
+
+.hero-meta {
+  display: flex;
+  gap: 30px;
+  margin-top: 48px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+}
+
+.hero-meta > div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.meta-number {
+  font: 800 19px "Manrope", sans-serif;
+  letter-spacing: -0.03em;
+}
+
+.meta-label {
+  font-size: 10px;
+  color: var(--muted);
+}
+
+
+/* ========================================
+   4. ФОТОГРАФІЯ ТА ДЕКОРАТИВНИЙ БЛОК
+======================================== */
+
+.hero-visual {
+  height: 430px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+}
+
+.visual-grid {
+  position: absolute;
+  inset: 15px 10px;
+  background-image:
+    linear-gradient(#c7d8e322 1px, transparent 1px),
+    linear-gradient(90deg, #c7d8e322 1px, transparent 1px);
+  background-size: 28px 28px;
+  border-radius: 32px;
+  mask-image: linear-gradient(135deg, #000, transparent 90%);
+  z-index: -2;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.orb-one {
+  width: 300px;
+  height: 300px;
+  right: 36px;
+  top: 42px;
+  background: linear-gradient(135deg, #e8e2ff, #d6edf7);
+}
+
+.orb-two {
+  width: 130px;
+  height: 130px;
+  left: 12px;
+  bottom: 45px;
+  background: #d5ecf6;
+  opacity: 0.8;
+}
+
+/* Картка з фотографією */
+
+.portrait-card {
+  width: 300px;
+  height: 365px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border: 1px solid #ffffffc9;
+  border-radius: 28px;
+  background: linear-gradient(155deg, #f8f6ff 0%, #e4f2f8 100%);
+  box-shadow: 0 28px 70px #253f581c;
+  transform: rotate(-2deg);
+  isolation: isolate;
+}
+
+/* Декоративні кола поверх фону, але не фото */
+
+.portrait-card::before,
+.portrait-card::after {
+  content: "";
+  position: absolute;
+  border: 1px solid #9388d355;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.portrait-card::before {
+  width: 270px;
+  height: 270px;
+  right: -115px;
+  top: -80px;
+}
+
+.portrait-card::after {
+  width: 210px;
+  height: 210px;
+  right: -85px;
+  top: -50px;
+}
+
+/* Контейнер фотографії */
+
+.portrait-monogram {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 27px;
+  z-index: 0;
+}
+
+/* Саме фото */
+
+.portrait-photo,
+.portrait-monogram img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  border-radius: inherit;
+}
+
+/* Підпис унизу фотографії */
+
+.portrait-caption {
+  position: relative;
+  z-index: 3;
+  margin-top: auto;
+  padding: 48px 12px 12px;
+  border-radius: 0 0 18px 18px;
+  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(15, 34, 48, 0.88)
+  );
+}
+
+.portrait-caption span {
+  font-size: 8px;
+  letter-spacing: 0.18em;
+  color: #d8d0ff;
+  font-weight: 800;
+}
+
+.portrait-caption strong {
+  display: block;
+  font: 700 15px/1.5 "Manrope", sans-serif;
+  margin-top: 9px;
+}
+
+.floating-tag {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  border: 1px solid #fff;
+  background: #ffffffed;
+  box-shadow: 0 12px 32px #22394a12;
+  border-radius: 14px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #415767;
+  z-index: 4;
+}
+
+.tag-top {
+  top: 58px;
+  right: 0;
+}
+
+.tag-bottom {
+  left: 0;
+  bottom: 58px;
+}
+
+.tag-icon {
+  display: grid;
+  place-items: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 9px;
+  background: var(--lav);
+  color: var(--purple);
+  font-size: 15px;
+}
+
+
+/* ========================================
+   5. ЗАГОЛОВКИ СЕКЦІЙ
+======================================== */
+
+.content-section {
+  padding-top: 92px;
+  padding-bottom: 100px;
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 34px;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 12px;
+}
+
+h2 {
+  font-size: clamp(29px, 3vw, 40px);
+  letter-spacing: -0.045em;
+  margin-bottom: 0;
+}
+
+.section-intro {
+  max-width: 390px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-bottom: 3px;
+}
+
+
+/* ========================================
+   6. ОСВІТА ТА ДОСВІД
+======================================== */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 20px;
+}
+
+.info-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px;
+  background: #fff;
+  min-height: 310px;
+}
+
+.education-card {
+  background: linear-gradient(135deg, #f8fbfd, #f4f2ff);
+}
+
+.card-icon {
+  width: 39px;
+  height: 39px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--purple);
+  font-size: 19px;
+  box-shadow: 0 4px 14px #1b33450a;
+  margin-bottom: 23px;
+}
+
+.card-kicker,
+.small-label {
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  font-weight: 800;
+  color: #7d70bc;
+  margin-bottom: 11px;
+}
+
+.info-card h3 {
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  margin-bottom: 12px;
+}
+
+.info-card > p:not(.card-kicker):not(.small-label),
+.timeline-item p {
+  font-size: 12px;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 15px;
+  border-top: 1px solid #dce4ed;
+  margin-top: 20px;
+  padding-top: 18px;
+}
+
+.timeline-year {
+  font: 800 12px "Manrope", sans-serif;
+  color: var(--purple);
+  padding-top: 3px;
+}
+
+.timeline-item p {
+  margin: 0;
+}
+
+.role-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 23px 0;
+}
+
+.thesis {
+  font-size: 12px;
+  font-style: italic;
+  color: #526575;
+  line-height: 1.8;
+}
+
+
+
+/* ========================================
+   7. НАВЧАЛЬНІ ДИСЦИПЛІНИ
+======================================== */
+
+.courses-section {
+  background: var(--bg);
+  padding: 90px 0 100px;
+  border-block: 1px solid #eef2f6;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.course-card {
+  min-height: 190px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 22px;
+  border: 1px solid #e5ebf0;
+  border-radius: 18px;
+  background: #fff;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.course-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 32px #1e3c5210;
+}
+
+.course-index {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  color: #9baab6;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.course-card h3 {
+  width: 100%;
+  max-width: 270px;
+  font-size: 16px;
+  letter-spacing: -0.025em;
+  margin-bottom: 10px;
+}
+
+.course-type {
+  display: inline-block;
+  margin-top: auto;
+  color: #7a6bc5;
+  background: #f2efff;
+  border-radius: 7px;
+  padding: 5px 8px;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.course-featured {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+}
+
+.course-featured .course-index {
+  color: #b9c8d2;
+}
+
+.course-featured .course-type {
+  background: #304455;
+  color: #d7d0ff;
+}
+
+
+
+/* ========================================
+   8. НАУКОВА ДІЯЛЬНІСТЬ
+======================================== */
+
+.research-panel {
+  display: grid;
+  grid-template-columns: 1fr 0.85fr;
+  border-radius: 24px;
+  overflow: hidden;
+  background: var(--navy);
+  color: #fff;
+}
+
+.research-main {
+  padding: 42px 44px;
+  background: radial-gradient(
+    circle at 10% 0%,
+    #3c4e67 0,
+    transparent 48%
+  ), var(--navy);
+}
+
+.research-mark {
+  font: 800 54px Georgia, serif;
+  color: #bcb1ff;
+  line-height: 1;
+}
+
+.research-main h3 {
+  font-size: 25px;
+  letter-spacing: -0.04em;
+  margin: 16px 0 12px;
+  max-width: 370px;
+}
+
+.research-main p {
+  color: #bdcbd4;
+  font-size: 12px;
+  max-width: 350px;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.research-side {
+  padding: 32px 35px;
+  background: #1c3749;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.research-item {
+  display: flex;
+  gap: 18px;
+  padding: 19px 0;
+  border-bottom: 1px solid #ffffff1a;
+}
+
+.research-item:last-child {
+  border-bottom: 0;
+}
+
+.research-item > span {
+  font: 700 11px "Manrope", sans-serif;
+  color: #bcb1ff;
+  padding-top: 3px;
+}
+
+.research-item h4 {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.research-item p {
+  font-size: 11px;
+  color: #bdcbd4;
+  margin: 0;
+}
+
+.publications-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  margin-top: 22px;
+}
+
+.publications-row .eyebrow {
+  margin-bottom: 8px;
+}
+
+.publications-row h3 {
+  font-size: 17px;
+  margin-bottom: 7px;
+}
+
+.publications-row p:not(.eyebrow) {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+
+.text-link {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--purple);
+  white-space: nowrap;
+}
+
+.text-link span {
+  margin-left: 7px;
+}
+
+
+/* ========================================
+   9. КОНТАКТИ
+======================================== */
+
+.contact-section {
+  padding: 75px 0;
+  background: linear-gradient(110deg, #f0edff, #edf7fb);
+}
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.contact-inner h2 {
+  max-width: 470px;
+}
+
+.contact-copy {
+  max-width: 440px;
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.8;
+  margin: 15px 0 0;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 18px;
+  padding: 27px;
+  box-shadow: 0 16px 35px #344b5b0b;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.contact-label {
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #7c6cc7;
+}
+
+.contact-card > a:not(.contact-source) {
+  font: 700 17px "Manrope", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.contact-source {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--muted);
+  margin-top: 5px;
+}
+
+
+/* ========================================
+   10. ПІДВАЛ САЙТУ
+======================================== */
+
+.site-footer {
+  min-height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-brand .brand-mark {
+  width: 34px;
+  height: 34px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.footer-brand .brand-text {
+  font-size: 12px;
+}
+
+.footer-brand .brand-text small {
+  font-size: 8px;
+}
+
+.site-footer p,
+.site-footer > a:last-child {
+  font-size: 10px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.site-footer > a:last-child:hover {
+  color: var(--purple);
+}
+
+/* ========================================
+   КНОПКИ СИЛАБУСІВ
+======================================== */
+
+.course-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.course-card h3 {
+  width: 100%;
+}
+
+.syllabus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 10px 14px;
+
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+
+  color: var(--navy);
+  font-size: 11px;
+  font-weight: 700;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.syllabus-button:hover {
+  background: var(--navy);
+  color: #fff;
+  border-color: var(--navy);
+  transform: translateY(-2px);
+}
+
+.syllabus-button span {
+  font-size: 14px;
+}
+
+/* Кнопка на темній картці */
+
+.course-featured .syllabus-button {
+  background: transparent;
+  border-color: #627584;
+  color: #fff;
+}
+
+.course-featured .syllabus-button:hover {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+
+/* ========================================
+   НАУКОВІ ІНТЕРЕСИ
+======================================== */
+
+.research-interests {
+  margin-bottom: 42px;
+  padding: 22px 26px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+
+.interests-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.interests-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: #eef0f8;
+  color: var(--navy);
+  font-size: 21px;
+}
+
+.interests-heading .card-kicker {
+  margin: 0 0 5px;
+}
+
+.interests-heading h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.4;
+}
+
+.interest-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 17px;
+}
+
+.interest-tags span {
+  padding: 7px 11px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* ========================================
+   НАУКОВІ ПРАЦІ
+======================================== */
+
+.publications-block {
+  margin-top: 8px;
+}
+
+.publications-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.publications-heading .eyebrow {
+  margin-bottom: 8px;
+}
+
+.publications-heading h3 {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.publications-count {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.publication-list {
+  border-top: 1px solid var(--line);
+}
+
+.publication-item {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 38px;
+  align-items: center;
+  gap: 16px;
+  padding: 21px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.publication-number {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.publication-info h4 {
+  margin: 0 0 7px;
+  color: var(--navy);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.publication-info p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.publication-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--navy);
+  font-size: 17px;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.publication-link:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.publications-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+
+.publications-actions .button {
+  min-height: 44px;
+  font-size: 12px;
+}
+
+
+/* CONTACTS */
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 28px;
+    border: 1px solid #e5ebf0;
+    border-radius: 18px;
+    background: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.contact-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(35, 42, 65, 0.07);
+}
+
+.contact-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: #f0eaff;
+    color: #7651c8;
+    font-size: 22px;
+}
+
+.contact-card .card-kicker {
+    margin: 4px 0 0;
+}
+
+.contact-card h3 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.contact-card p:not(.card-kicker) {
+    margin: 0;
+    color: #5f6674;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.contact-card a {
+    color: #7651c8;
+    font-size: 14px;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+.contact-card a:hover {
+    color: #5432a0;
+    text-decoration: underline;
+}
+
+@media (max-width: 650px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+        padding: 22px;
+    }
+}
+
+
+/* Розташування карток контактів */
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-cards .contact-card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contact-cards .contact-copy {
+    margin: 0;
+}
+
+/* ========================================
+   АДАПТИВНІСТЬ
+======================================== */
+
+@media (max-width: 600px) {
+  .research-interests {
+    padding: 18px;
+    margin-bottom: 32px;
+  }
+
+  .interests-heading h3 {
+    font-size: 15px;
+  }
+
+  .publications-heading h3 {
+    font-size: 20px;
+  }
+
+  .publication-item {
+    grid-template-columns: 28px minmax(0, 1fr) 34px;
+    gap: 10px;
+    padding: 17px 0;
+  }
+
+  .publication-info h4 {
+    font-size: 13px;
+  }
+
+  .publication-info p {
+    font-size: 11px;
+  }
+
+  .publications-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .publications-actions .button {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+
+
+/* ========================================
+   11. АДАПТИВНІСТЬ: ПЛАНШЕТИ
+======================================== */
+
+@media (max-width: 950px) {
+  .site-header {
+    padding-inline: 24px;
+  }
+
+  .nav {
+    gap: 14px;
+  }
+
+  .nav a {
+    font-size: 11px;
+  }
+
+  .header-link {
+    display: none;
+  }
+
+  .hero {
+    gap: 25px;
+  }
+
+  .hero-meta {
+    gap: 18px;
+  }
+
+  .hero-visual {
+    transform: scale(0.92);
+  }
+}
+
+
+@media (max-width: 760px) {
+  .site-header {
+    height: auto;
+    min-height: 75px;
+    flex-wrap: wrap;
+    padding-block: 13px;
+    gap: 13px;
+  }
+
+  .nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding: 3px 0 6px;
+    justify-content: space-between;
+  }
+
+  .nav a {
+    white-space: nowrap;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 56px;
+    gap: 12px;
+  }
+
+  .hero-visual {
+    height: 390px;
+    max-width: 500px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  .hero-meta {
+    justify-content: space-between;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  .section-intro {
+    max-width: 560px;
+  }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .research-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .research-side {
+    padding: 15px 35px 25px;
+  }
+
+  .contact-inner {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .publications-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .content-section {
+    padding-block: 68px;
+  }
+
+  .courses-section {
+    padding-block: 68px;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .page-wrap {
+    width: calc(100% - 34px);
+  }
+
+  .site-header {
+    padding-inline: 17px;
+  }
+
+  .brand-text small {
+    max-width: 170px;
+  }
+
+  .nav {
+    gap: 18px;
+    justify-content: flex-start;
+  }
+
+  .hero {
+    padding-top: 44px;
+    padding-bottom: 50px;
+  }
+
+  h1 {
+    font-size: 42px;
+  }
+
+  .hero-description {
+    font-size: 13px;
+  }
+
+  .hero-meta {
+    gap: 12px;
+    margin-top: 35px;
+  }
+
+  .meta-number {
+    font-size: 16px;
+  }
+
+  .meta-label {
+    font-size: 9px;
+    max-width: 90px;
+  }
+
+  .hero-visual {
+    height: 360px;
+    transform: scale(0.9);
+    margin-top: -8px;
+    margin-bottom: -10px;
+  }
+
+  .portrait-card {
+    width: 280px;
+    height: 340px;
+  }
+
+  .orb-one {
+    width: 250px;
+    height: 250px;
+  }
+
+  .floating-tag {
+    font-size: 9px;
+    padding: 9px 11px;
+  }
+
+  .tag-top {
+    right: -5px;
+    top: 35px;
+  }
+
+  .tag-bottom {
+    left: -7px;
+    bottom: 28px;
+  }
+
+  .info-card {
+    padding: 23px;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    min-height: 160px;
+    padding: 18px;
+  }
+
+  .research-main {
+    padding: 32px 26px;
+  }
+
+  .research-side {
+    padding-inline: 26px;
+  }
+
+  .contact-card {
+    padding: 22px;
+  }
+
+  .contact-card > a:not(.contact-source) {
+    font-size: 15px;
+  }
+
+  .site-footer {
+    padding-block: 24px;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .site-footer p {
+    order: 3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}
+
